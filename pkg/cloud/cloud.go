@@ -2,6 +2,7 @@ package cloud
 
 import (
 	configv1 "github.com/openshift/api/config/v1"
+	"github.com/openshift/cluster-cloud-controller-manager-operator/pkg/cloud/alibaba"
 	"github.com/openshift/cluster-cloud-controller-manager-operator/pkg/cloud/aws"
 	"github.com/openshift/cluster-cloud-controller-manager-operator/pkg/cloud/azure"
 	"github.com/openshift/cluster-cloud-controller-manager-operator/pkg/cloud/azurestack"
@@ -31,6 +32,8 @@ func GetResources(platformStatus *configv1.PlatformStatus) []client.Object {
 		return azure.GetResources()
 	case configv1.IBMCloudPlatformType:
 		return ibm.GetResources()
+	case configv1.AlibabaCloudPlatformType:
+		return alibaba.GetResources()
 	default:
 		klog.Warningf("Unrecognized platform type %q found in infrastructure", platformStatus.Type)
 		return nil

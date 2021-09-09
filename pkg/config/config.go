@@ -15,6 +15,7 @@ type imagesReference struct {
 	CloudControllerManagerOperator  string `json:"cloudControllerManagerOperator"`
 	CloudControllerManagerAWS       string `json:"cloudControllerManagerAWS"`
 	CloudControllerManagerAzure     string `json:"cloudControllerManagerAzure"`
+	CloudControllerManagerAlibaba   string `json:"cloudControllerManagerAlibaba"`
 	CloudNodeManagerAzure           string `json:"cloudNodeManagerAzure"`
 	CloudControllerManagerOpenStack string `json:"cloudControllerManagerOpenStack"`
 }
@@ -70,6 +71,8 @@ func getCloudControllerManagerFromImages(platform configv1.PlatformType, images 
 		return images.CloudControllerManagerOpenStack
 	case configv1.AzurePlatformType:
 		return images.CloudControllerManagerAzure
+	case configv1.AlibabaCloudPlatformType:
+		return images.CloudControllerManagerAlibaba
 	default:
 		return ""
 	}

@@ -1,6 +1,7 @@
 package cloud
 
 import (
+	"github.com/openshift/cluster-cloud-controller-manager-operator/pkg/cloud/alibaba"
 	"strings"
 	"testing"
 
@@ -68,6 +69,10 @@ func TestGetResources(t *testing.T) {
 		isAzureStack: true,
 		expected:     azurestack.GetResources(),
 	}, {
+		name:     "AlibabaCloud resources are empty",
+		platform: configv1.AlibabaCloudPlatformType,
+		expected: alibaba.GetResources(),
+	}, {
 		name:     "VSphere resources are empty, as the platform is not yet supported",
 		platform: configv1.VSpherePlatformType,
 	}, {
@@ -126,6 +131,7 @@ func TestPodSpec(t *testing.T) {
 		{configv1.VSpherePlatformType, getDummyPlatformStatus(configv1.VSpherePlatformType, false)},
 		{configv1.OvirtPlatformType, getDummyPlatformStatus(configv1.OvirtPlatformType, false)},
 		{configv1.IBMCloudPlatformType, getDummyPlatformStatus(configv1.IBMCloudPlatformType, false)},
+		{configv1.AlibabaCloudPlatformType, getDummyPlatformStatus(configv1.AlibabaCloudPlatformType, false)},
 		{configv1.LibvirtPlatformType, getDummyPlatformStatus(configv1.LibvirtPlatformType, false)},
 		{configv1.KubevirtPlatformType, getDummyPlatformStatus(configv1.KubevirtPlatformType, false)},
 		{configv1.BareMetalPlatformType, getDummyPlatformStatus(configv1.BareMetalPlatformType, false)},
