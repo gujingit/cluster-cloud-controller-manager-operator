@@ -117,12 +117,17 @@ var FeatureSets = map[FeatureSet]*FeatureGateEnabledDisabled{
 		with("CSIMigrationOpenStack").      // sig-storage, jsafrane, Kubernetes feature gate
 		with("CSIMigrationGCE").            // sig-storage, fbertina, Kubernetes feature gate
 		with("CSIMigrationAzureDisk").      // sig-storage, fbertina, Kubernetes feature gate
+<<<<<<< HEAD
 		with("CSIMigrationAzureFile").      // sig-storage, fbertina, Kubernetes feature gate
 		with("CSIMigrationVSphere").        // sig-storage, fbertina, Kubernetes feature gate
 		with("ExternalCloudProvider").      // sig-cloud-provider, jspeed, OCP specific
 		with("InsightsOperatorPullingSCA"). // insights-operator/ccx, tremes, OCP specific
 		with("CSIDriverSharedResource").    // sig-build, adkaplan, OCP specific
 		with("BuildCSIVolumes").            // sig-build, adkaplan, OCP specific
+=======
+		with("ExternalCloudProvider").      // sig-cloud-provider, jspeed, OCP specific
+		with("InsightsOperatorPullingSCA"). // insights-operator/ccx, tremes, OCP specific
+>>>>>>> Add support for Alibaba ccm
 		toFeatures(),
 	LatencySensitive: newDefaultFeatures().
 		with(

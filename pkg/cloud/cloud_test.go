@@ -85,6 +85,11 @@ func TestGetResources(t *testing.T) {
 		expectedResourceCount     int
 		expectedResourcesKindName []string
 	}{{
+		name:                      "Alibaba resources returned as expected",
+		testPlatform:              platformsMap[string(configv1.AlibabaCloudPlatformType)],
+		expectedResourceCount:     1,
+		expectedResourcesKindName: []string{"Deployment/alibaba-cloud-controller-manager"},
+	}, {
 		name:                      "AWS resources returned as expected",
 		testPlatform:              platformsMap[string(configv1.AWSPlatformType)],
 		expectedResourceCount:     1,
